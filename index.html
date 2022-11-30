@@ -99,7 +99,7 @@
                   </svg>
                 </span>
               </span>
-              <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username">
+              <input class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search">
             </div>
 
             <span class="px-3">
@@ -113,95 +113,16 @@
           </div>
           <!-- Contacts Area -->
           <div class="ms_contacts">
-
-            <div class="ms_contacts-card d-flex align-items-center">
-              <img class="rounded-circle me-3 ms-3" src="./img/contact-2.jpg" alt="Profile picture">
+            <div v-for="data in contactsFilter" class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" :src="data.avatar" alt="Profile picture">
               <div class="ms_card-info d-flex align-items-center flex-grow-1">
                 <div class="ms_contacts-card-text mt-3">
-                  <h4>Michele</h4>
-                  <h5>Ultimo messaggio inviato</h5>
+                  <h4>{{data.name}}</h4>
+                  <h5>{{data.messages[0].message}}</h5>
                 </div>
-                <span class="ms_time ms_margin--left px-3">13.28</span>
+                <span class="ms_time ms_margin--left px-3">20:00</span>
               </div>
             </div>
-
-            <div class="ms_contacts-card d-flex align-items-center">
-              <img class="rounded-circle me-3 ms-3" src="./img/contact-3.jpg" alt="Profile picture">
-              <div class="ms_card-info d-flex align-items-center flex-grow-1">
-                <div class="ms_contacts-card-text mt-3">
-                  <h4>Fabio</h4>
-                  <h5>Ultimo messaggio inviato</h5>
-                </div>
-                <span class="ms_time ms_margin--left px-3">13.28</span>
-              </div>
-            </div>
-
-            <div class="ms_contacts-card d-flex align-items-center">
-              <img class="rounded-circle me-3 ms-3" src="./img/contact-4.jpg" alt="Profile picture">
-              <div class="ms_card-info d-flex align-items-center flex-grow-1">
-                <div class="ms_contacts-card-text mt-3">
-                  <h4>Samuele</h4>
-                  <h5>Ultimo messaggio inviato</h5>
-                </div>
-                <span class="ms_time ms_margin--left px-3">13.28</span>
-              </div>
-            </div>
-
-            <div class="ms_contacts-card d-flex align-items-center">
-              <img class="rounded-circle me-3 ms-3" src="./img/contact-5.jpg" alt="Profile picture">
-              <div class="ms_card-info d-flex align-items-center flex-grow-1">
-                <div class="ms_contacts-card-text mt-3">
-                  <h4>Alessandro B.</h4>
-                  <h5>Ultimo messaggio inviato</h5>
-                </div>
-                <span class="ms_time ms_margin--left px-3">13.28</span>
-              </div>
-            </div>
-
-            <div class="ms_contacts-card d-flex align-items-center">
-              <img class="rounded-circle me-3 ms-3" src="./img/contact-6.jpg" alt="Profile picture">
-              <div class="ms_card-info d-flex align-items-center flex-grow-1">
-                <div class="ms_contacts-card-text mt-3">
-                  <h4>Alessandro L.</h4>
-                  <h5>Ultimo messaggio inviato</h5>
-                </div>
-                <span class="ms_time ms_margin--left px-3">13.28</span>
-              </div>
-            </div>
-
-            <div class="ms_contacts-card d-flex align-items-center">
-              <img class="rounded-circle me-3 ms-3" src="./img/contact-1.jpg" alt="Profile picture">
-              <div class="ms_card-info d-flex align-items-center flex-grow-1">
-                <div class="ms_contacts-card-text mt-3">
-                  <h4>Claudia</h4>
-                  <h5>Ultimo messaggio inviato</h5>
-                </div>
-                <span class="ms_time ms_margin--left px-3">13.28</span>
-              </div>
-            </div>
-
-            <div class="ms_contacts-card d-flex align-items-center">
-              <img class="rounded-circle me-3 ms-3" src="./img/contact-7.jpg" alt="Profile picture">
-              <div class="ms_card-info d-flex align-items-center flex-grow-1">
-                <div class="ms_contacts-card-text mt-3">
-                  <h4>Federico</h4>
-                  <h5>Ultimo messaggio inviato</h5>
-                </div>
-                <span class="ms_time ms_margin--left px-3">13.28</span>
-              </div>
-            </div>
-
-            <div class="ms_contacts-card d-flex align-items-center">
-              <img class="rounded-circle me-3 ms-3" src="./img/contact-8.jpg" alt="Profile picture">
-              <div class="ms_card-info d-flex align-items-center flex-grow-1">
-                <div class="ms_contacts-card-text mt-3">
-                  <h4>Davide</h4>
-                  <h5>Ultimo messaggio inviato</h5>
-                </div>
-                <span class="ms_time ms_margin--left px-3">13.28</span>
-              </div>
-            </div>
-
           </div>
           <!-- Footer area -->
           <div class="ms_footer pt-2">
@@ -212,6 +133,7 @@
         </div>
         <!-- Main content area with messages -->
         <div class="col-8 ms_main-content px-0 d-flex flex-column justify-content-between">
+          <div id='bg'></div>
           <!-- Main top bar -->
           <div class="ms_contact-bar d-flex align-items-center justify-content-end px-3 py-2 gap-3 shadow-sm">
             <div class="ms_contact-info ms_margin--right d-flex align-items-center">
@@ -237,35 +159,62 @@
           </div>
           <!-- Main content messages -->
           <div class="ms_main-messages flex-grow-1">
-            <div id='bg'></div>
 
-            <div class="row">
 
-              <div class="ms_container">
-
-                <div class="ms_msg-container">
-                  <span class="">
-                    <svg class="ms_bubble-arrow" viewBox="0 0 8 13" width="8" height="13" class="">
-                      <path opacity=".13" fill="#0000000"
-                        d="M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"></path>
+            <!-- Received message -->
+            <div class="ms_container g-0">
+              <div class="row ms-3">
+                <div class="ms_msg-container-received d-flex mb-4">
+                  <span>
+                    <svg class="ms_bubble-arrow" viewBox="0 0 8 13" width="15" height="18" class="">
+                      <path opacity="0" fill="" d="M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z">
+                      </path>
                       <path fill="var(--primary-second)"
                         d="M1.533 2.568 8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z">
                       </path>
                     </svg>
                   </span>
-                  <div class="ms_bubble">
-                    <div class="ms_bubble-text">
-                      Messaggio ricevuto
+                  <div class="ms_bubble-received d-flex align-items-center">
+                    <div class="ms_bubble-text-received">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Id libero, a minus eos culpa deserunt
+                      sed
+                      autem ipsum voluptatum, debitis magni explicabo quod obcaecati commodi vitae, nesciunt accusamus
+                      quae nobis.
+                    </div>
+                    <div class="ms_time-received">
+                      <span>17:15</span>
                     </div>
                   </div>
-
                 </div>
-
               </div>
-
+              <!-- Send message -->
+              <div class="row justify-content-end mb-4">
+                <div class="ms_msg-container-sent d-flex g-0 justify-content-end">
+                  <span>
+                    <svg class="ms_bubble-arrow-sent" viewBox="0 0 8 13" width="15" height="18" class="">
+                      <path opacity="0" fill="" d="M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z">
+                      </path>
+                      <path fill="var(--secondary-third)"
+                        d="M1.533 2.568 8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z">
+                      </path>
+                    </svg>
+                  </span>
+                  <div class="ms_bubble-sent d-flex align-items-center">
+                    <div class="ms_bubble-text-sent">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sunt necessitatibus modi. Odio
+                      officiis tempora laudantium error reprehenderit fugit placeat accusamus quia sequi ut et
+                      corporis,
+                      necessitatibus hic voluptate velit!
+                    </div>
+                    <div class="ms_time-sent">
+                      <span>17:15</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
           </div>
+
           <!-- Bottom main content bar -->
           <div class="ms_message-bar d-flex align-items-center justify-content-between px-3 gap-3">
             <span>

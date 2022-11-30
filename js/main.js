@@ -1,7 +1,7 @@
 /*
-Milestone 1
-Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
-Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
+Milestone 2
+Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
+Click sul contatto mostra la conversazione del contatto cliccato
 */
 
 const { createApp } = Vue;
@@ -9,10 +9,11 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      search: '',
       contacts: [
         {
           name: 'Michele',
-          avatar: '_1',
+          avatar: './img/contact-2.jpg',
           visible: true,
           messages: [
             {
@@ -34,7 +35,7 @@ createApp({
         },
         {
           name: 'Fabio',
-          avatar: '_2',
+          avatar: './img/contact-3.jpg',
           visible: true,
           messages: [
             {
@@ -56,7 +57,7 @@ createApp({
         },
         {
           name: 'Samuele',
-          avatar: '_3',
+          avatar: './img/contact-4.jpg',
           visible: true,
           messages: [
             {
@@ -78,7 +79,7 @@ createApp({
         },
         {
           name: 'Alessandro B.',
-          avatar: '_4',
+          avatar: './img/contact-5.jpg',
           visible: true,
           messages: [
             {
@@ -95,7 +96,7 @@ createApp({
         },
         {
           name: 'Alessandro L.',
-          avatar: '_5',
+          avatar: './img/contact-6.jpg',
           visible: true,
           messages: [
             {
@@ -112,7 +113,7 @@ createApp({
         },
         {
           name: 'Claudia',
-          avatar: '_6',
+          avatar: './img/contact-1.jpg',
           visible: true,
           messages: [
             {
@@ -134,7 +135,7 @@ createApp({
         },
         {
           name: 'Federico',
-          avatar: '_7',
+          avatar: './img/contact-7.jpg',
           visible: true,
           messages: [
             {
@@ -151,7 +152,7 @@ createApp({
         },
         {
           name: 'Davide',
-          avatar: '_8',
+          avatar: './img/contact-8.jpg',
           visible: true,
           messages: [
             {
@@ -175,7 +176,13 @@ createApp({
     }
   },
   methods: {
+
+  },
+  computed: {
+    contactsFilter() {
+      return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.search))
+    }
   }
-}).mount('#app')
+}).mount('#app');
 
 

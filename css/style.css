@@ -41,7 +41,8 @@ img {
   --accent-notification: #182229;
   /* Main content side */
   --primary-fourth: #0B141A;
-
+  /* Lines */
+  --lines: #2F3B43;
 }
 
 .ms_main-content {
@@ -53,7 +54,7 @@ img {
 .ms_sidebar {
   height: 850px;
   background-color: var(--primary-first);
-  border-right: 1px solid var(--primary-second);
+  border-right: 1px solid var(--lines);
 }
 
 .border-end {
@@ -191,25 +192,39 @@ img {
 }
 
 /* Hide scrollbar */
-.ms_contacts {
+.ms_contacts,
+.ms_main-messages {
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow-y: scroll;
 }
 
-.ms_contacts::-webkit-scrollbar {
+.ms_contacts::-webkit-scrollbar,
+.ms_main-messages::-webkit-scrollbar {
   display: none;
 }
+
 
 /* Main content messages area */
 .ms_main-messages {
   background-color: var(--primary-fourth);
-  height: 700px;
+}
+
+.ms_contact-bar,
+.ms_message-bar {
+  background: var(--primary-second);
+  opacity: 1;
+  z-index: 777;
+}
+
+.ms_main-content {
   position: relative;
 }
 
 #bg {
+  background-size: contain;
   background: url(../img/background-pattern.png);
+  background-attachment: fixed;
   opacity: .1;
   top: 0;
   left: 0;
@@ -241,6 +256,7 @@ img {
   cursor: pointer;
 }
 
+/* Message Bubbles */
 .ms_main-messages {
   color: var(--primary-third);
 }
@@ -250,28 +266,68 @@ img {
   margin: 3vh auto;
 }
 
-.ms_msg-container {
+.ms_msg-container-received {
   z-index: 222;
   position: relative;
-  max-width: 45%;
+  max-width: 65%;
   font-size: 1rem;
-  line-height: 1.188rem;
   color: var(--primary-third);
 }
 
 .ms_bubble-arrow {
   position: absolute;
   top: 0;
-  left: -.920rem;
-  width: 1.8rem;
-  height: 1.125rem;
+  left: -0.625em;
 }
 
-.ms_bubble {
-  border-radius: .5em;
+.ms_bubble-received {
+  position: relative;
+  border-radius: 0 .5em .5em .5em;
   background-color: var(--primary-second);
 }
 
-.ms_bubble-text {
-  padding: 6px 7px 8px 9px;
+.ms_bubble-text-received {
+  padding: 0.375em 2.5em 0.5em 0.563em;
+  position: relative;
+}
+
+.ms_time-received,
+.ms_time-sent {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.75rem;
+  padding: 0 .2em .2em 0;
+  color: var(--secondary-second);
+}
+
+.row>* {
+  padding: 0 !important;
+}
+
+.ms_bubble-arrow-sent {
+  position: absolute;
+  top: 0;
+  right: -0.625em;
+  transform: scaleX(-1);
+}
+
+.ms_bubble-sent {
+  position: relative;
+  border-radius: .5em 0em .5em .5em;
+  background-color: var(--secondary-third);
+}
+
+.ms_msg-container-sent {
+  z-index: 222;
+  position: relative;
+  font-size: 1rem;
+  color: var(--primary-third);
+  max-width: 65%;
+}
+
+
+.ms_bubble-text-sent {
+  padding: 0.375em 2.5em .4em 0.563em;
+  position: relative;
 }
