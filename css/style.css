@@ -1,0 +1,40 @@
+/* =========================
+      General Styling
+============================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent Flickering Of Vue Elements On Page Load */
+[v-cloak] {
+  display: none;
+}
+
+body {
+  background-color: black;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root {
+  /* Webpage background color */
+  --primary-first: #111B21;
+  /* Header, footer, received messages, search input, left chat hover */
+  --primary-second: #202C33;
+  /* Webpage font color */
+  --primary-third: #fff;
+  /* Left side active chat */
+  --secondary-first: #2A3942;
+  /* Webapp icons */
+  --secondary-second: #8696A0;
+  /* Sent messages */
+  --secondary-third: #005C4B;
+  /* Left side update and message received, page loader */
+  --accent-first: #00A884;
+  /* Left side bottom link, end-to-end */
+  --accent-second: #53BDEB;
+}
