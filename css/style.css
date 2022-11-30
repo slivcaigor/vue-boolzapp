@@ -13,7 +13,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: var(--primary-first);
 }
 
 img {
@@ -37,4 +37,241 @@ img {
   --accent-first: #00A884;
   /* Left side bottom link, end-to-end */
   --accent-second: #53BDEB;
+  /* Left side */
+  --accent-notification: #182229;
+  /* Main content side */
+  --primary-fourth: #0B141A;
+
+}
+
+.ms_main-content {
+  height: 850px;
+  background-color: var(--primary-second);
+}
+
+/* Sidebar */
+.ms_sidebar {
+  height: 850px;
+  background-color: var(--primary-first);
+  border-right: 1px solid var(--primary-second);
+}
+
+.border-end {
+  border-right: var(--bs-border-width) var(--bs-border-style) #444 !important;
+}
+
+/* Profile Top Bar */
+.ms_profile-bar img,
+.ms_contact-bar img {
+  width: 3.125rem;
+  cursor: pointer;
+}
+
+.ms_profile-bar span,
+.ms_contact-bar span {
+  cursor: pointer;
+}
+
+.ms_profile-bar {
+  background-color: var(--primary-second);
+}
+
+.ms_margin--right {
+  margin-right: auto;
+}
+
+/* Notification Bar */
+.ms_notification-text h5,
+.ms_contacts-card-text h5 {
+  font-size: 0.875rem;
+  color: var(--secondary-second);
+}
+
+.ms_notification-text h5:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ms_notification-text h4,
+.ms_contacts-card-text h4,
+.ms_contact-info h4 {
+  font-size: 1rem;
+  color: var(--primary-third);
+  line-height: .7em;
+  cursor: pointer;
+}
+
+.ms_notification-bar {
+  background-color: var(--accent-notification);
+}
+
+.ms_notification-bar span {
+  cursor: pointer;
+}
+
+/* Search bar */
+.ms_search-bar input {
+  font-size: 0.875rem;
+}
+
+.input-group-text {
+  background-color: var(--primary-second) !important;
+  border: none !important;
+}
+
+.form-control::placeholder {
+  color: var(--secondary-second) !important;
+}
+
+.form-control {
+  background-color: var(--primary-second) !important;
+  border: none !important;
+}
+
+.input-group-sm>.form-control {
+  border-radius: .5rem;
+}
+
+.input-group-sm>.input-group-text {
+  border-radius: .5rem;
+}
+
+.form-control:focus {
+  outline: 0;
+  box-shadow: none;
+  color: var(--primary-third);
+}
+
+.ms_search-bar span {
+  cursor: pointer;
+}
+
+/* Footer Sidebar */
+.ms_footer-text {
+  font-size: 0.75rem;
+  color: var(--primary-third);
+  text-align: center;
+}
+
+.ms_footer-text span {
+  color: var(--accent-second);
+  cursor: pointer;
+}
+
+/* Contacts Section */
+.ms_contacts img {
+  width: 3.125rem;
+  cursor: pointer;
+}
+
+.ms_time {
+  color: var(--secondary-second);
+  font-size: 0.75rem;
+}
+
+.ms_margin--left {
+  margin-left: auto;
+}
+
+.ms_contacts-card h5:hover {
+  text-decoration: none;
+}
+
+.ms_contacts-card:hover {
+  background-color: var(--primary-second);
+}
+
+.ms_card-info {
+  border-bottom: 1px solid var(--primary-second);
+  padding-bottom: .6em;
+}
+
+.ms_contacts {
+  height: 565px;
+}
+
+/* Hide scrollbar */
+.ms_contacts {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
+
+.ms_contacts::-webkit-scrollbar {
+  display: none;
+}
+
+/* Main content messages area */
+.ms_main-messages {
+  background-color: var(--primary-fourth);
+  height: 700px;
+  position: relative;
+}
+
+#bg {
+  background: url(../img/background-pattern.png);
+  opacity: .1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 111;
+}
+
+/* Main area send message bar */
+.ms_message-bar input {
+  font-size: 1.1rem;
+  height: 2em;
+  margin: .7em 0;
+  width: 100%;
+  background-color: var(--secondary-first);
+  border: none;
+  border-radius: .5em;
+  color: var(--primary-third);
+}
+
+.ms_bg-msg:focus {
+  outline: 0;
+  box-shadow: none;
+  color: var(--primary-third);
+}
+
+.ms_message-bar span {
+  cursor: pointer;
+}
+
+.ms_main-messages {
+  color: var(--primary-third);
+}
+
+.ms_container {
+  width: 80%;
+  margin: 3vh auto;
+}
+
+.ms_msg-container {
+  z-index: 222;
+  position: relative;
+  max-width: 45%;
+  font-size: 1rem;
+  line-height: 1.188rem;
+  color: var(--primary-third);
+}
+
+.ms_bubble-arrow {
+  position: absolute;
+  top: 0;
+  left: -.920rem;
+  width: 1.8rem;
+  height: 1.125rem;
+}
+
+.ms_bubble {
+  border-radius: .5em;
+  background-color: var(--primary-second);
+}
+
+.ms_bubble-text {
+  padding: 6px 7px 8px 9px;
 }

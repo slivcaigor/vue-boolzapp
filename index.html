@@ -7,19 +7,296 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src='https://unpkg.com/vue@3/dist/vue.global.js' defer></script>
   <script src="./js/main.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css" />
-  <title>Boolzapp</title>
+  <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+  <title>BoolsApp</title>
 </head>
 
 <body>
-  <div v-cloak id="app"></div>
+  <div v-cloak id="app">
+    <div class="container mt-5 shadow-lg">
+      <div class="row">
+        <!-- Left side content -->
+        <div class="col-4 ms_sidebar px-0">
+          <!-- Profile bar with avatar and icons -->
+          <div class="ms_profile-bar d-flex align-items-center justify-content-end px-3 py-2 gap-3">
+            <img class="rounded-circle ms_margin--right" src="./img/avatar.jpg" alt="Profile picture">
+            <span>
+              <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                id="df9d3429-f0ef-48b5-b5eb-f9d27b2deba6" x="0px" y="0px" enable-background="new 0 0 24 24"
+                xml:space="preserve">
+                <path fill="var(--secondary-second)"
+                  d="M12.072,1.761c-3.941-0.104-7.579,2.105-9.303,5.65c-0.236,0.486-0.034,1.07,0.452,1.305 c0.484,0.235,1.067,0.034,1.304-0.45c1.39-2.857,4.321-4.637,7.496-4.553c0.539,0.02,0.992-0.4,1.013-0.939s-0.4-0.992-0.939-1.013 C12.087,1.762,12.079,1.762,12.072,1.761z M1.926,13.64c0.718,3.876,3.635,6.975,7.461,7.925c0.523,0.13,1.053-0.189,1.183-0.712 c0.13-0.523-0.189-1.053-0.712-1.183c-3.083-0.765-5.434-3.262-6.012-6.386c-0.098-0.53-0.608-0.88-1.138-0.782 C2.178,12.6,1.828,13.11,1.926,13.64z M15.655,21.094c3.642-1.508,6.067-5.006,6.201-8.946c0.022-0.539-0.396-0.994-0.935-1.016 c-0.539-0.022-0.994,0.396-1.016,0.935c0,0.005,0,0.009,0,0.014c-0.107,3.175-2.061,5.994-4.997,7.209 c-0.501,0.201-0.743,0.769-0.543,1.27c0.201,0.501,0.769,0.743,1.27,0.543C15.642,21.1,15.648,21.097,15.655,21.094z">
+                </path>
+                <path fill="#009588" d="M19,1.5c1.657,0,3,1.343,3,3s-1.343,3-3,3s-3-1.343-3-3S17.343,1.5,19,1.5z">
+                </path>
+              </svg>
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path fill="var(--secondary-second)" enable-background="new    "
+                  d="M19.005,3.175H4.674C3.642,3.175,3,3.789,3,4.821V21.02 l3.544-3.514h12.461c1.033,0,2.064-1.06,2.064-2.093V4.821C21.068,3.789,20.037,3.175,19.005,3.175z M14.016,13.044H7.041V11.1 h6.975V13.044z M17.016,9.044H7.041V7.1h9.975V9.044z">
+                </path>
+              </svg>
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path fill="var(--secondary-second)"
+                  d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z">
+                </path>
+              </svg>
+            </span>
+          </div>
+          <!-- Notification bar -->
+          <div class="ms_notification-bar d-flex align-items-center px-3 py-3">
+            <span>
+              <svg viewBox="0 0 48 48" height="48" width="48" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                x="0px" y="0px" enable-background="new 0 0 48 48" xml:space="preserve">
+                <path fill="var(--accent-second)"
+                  d="M24.154,2C11.919,2,2,11.924,2,24.165S11.919,46.33,24.154,46.33 s22.154-9.924,22.154-22.165S36.389,2,24.154,2z M23.41,17.428V16.81c0-0.706,0.618-1.324,1.324-1.324s1.323,0.618,1.323,1.324 v0.618c2.559,0.618,4.412,2.823,4.412,5.559v3.176l-8.294-8.294C22.527,17.692,22.969,17.516,23.41,17.428z M24.733,33.134 c-0.971,0-1.765-0.794-1.765-1.765h3.529C26.498,32.34,25.704,33.134,24.733,33.134z M31.969,32.251l-1.765-1.765H17.233v-0.882 l1.765-1.765v-4.853c0-1.059,0.265-2.029,0.794-2.912l-2.559-2.559l1.147-1.147l14.735,14.736L31.969,32.251z">
+                </path>
+              </svg>
+            </span>
+
+            <div class="ms_margin--right ms_notification-text mt-3 px-3">
+              <h4>Ricevi notifiche di nuovi messaggi</h4>
+              <h5>Attiva notifiche desktop
+                <span>
+                  <svg viewBox="0 0 8 12" height="12" width="8" preserveAspectRatio="xMidYMid meet" class=""
+                    version="1.1" x="0px" y="0px" enable-background="new 0 0 8 12" xml:space="preserve">
+                    <path fill="currentColor"
+                      d="M2.173,1l4.584,4.725L2.142,10.34L1.039,9.237l3.512-3.512L1,2.173L2.173,1z"></path>
+                  </svg>
+                </span>
+              </h5>
+            </div>
+
+            <span>
+              <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class=""
+                fill="var(--secondary-second)" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path enable-background="new"
+                  d="M19.1,17.2l-5.3-5.3l5.3-5.3l-1.8-1.8L12,10.2L6.7,4.9L4.9,6.6 l5.3,5.3l-5.3,5.3L6.7,19l5.3-5.3l5.3,5.3L19.1,17.2z">
+                </path>
+              </svg>
+            </span>
+          </div>
+          <!-- Search bar -->
+          <div class="ms_search-bar d-flex align-items-center justify-content-between ps-3 py-2">
+
+            <div class="input-group input-group-sm">
+              <span class="input-group-text px-3">
+                <span>
+                  <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class=""
+                    version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
+                    <path fill="var(--secondary-second)"
+                      d="M15.009,13.805h-0.636l-0.22-0.219c0.781-0.911,1.256-2.092,1.256-3.386 c0-2.876-2.332-5.207-5.207-5.207c-2.876,0-5.208,2.331-5.208,5.207s2.331,5.208,5.208,5.208c1.293,0,2.474-0.474,3.385-1.255 l0.221,0.22v0.635l4.004,3.999l1.194-1.195L15.009,13.805z M10.201,13.805c-1.991,0-3.605-1.614-3.605-3.605 s1.614-3.605,3.605-3.605s3.605,1.614,3.605,3.605S12.192,13.805,10.201,13.805z">
+                    </path>
+                  </svg>
+                </span>
+              </span>
+              <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username">
+            </div>
+
+            <span class="px-3">
+              <svg viewBox="0 0 24 24" height="20" width="20" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path fill="var(--secondary-second)" d="M10,18.1h4v-2h-4V18.1z M3,6.1v2h18v-2H3z M6,13.1h12v-2H6V13.1z">
+                </path>
+              </svg>
+            </span>
+
+          </div>
+          <!-- Contacts Area -->
+          <div class="ms_contacts">
+
+            <div class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" src="./img/contact-2.jpg" alt="Profile picture">
+              <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                <div class="ms_contacts-card-text mt-3">
+                  <h4>Michele</h4>
+                  <h5>Ultimo messaggio inviato</h5>
+                </div>
+                <span class="ms_time ms_margin--left px-3">13.28</span>
+              </div>
+            </div>
+
+            <div class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" src="./img/contact-3.jpg" alt="Profile picture">
+              <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                <div class="ms_contacts-card-text mt-3">
+                  <h4>Fabio</h4>
+                  <h5>Ultimo messaggio inviato</h5>
+                </div>
+                <span class="ms_time ms_margin--left px-3">13.28</span>
+              </div>
+            </div>
+
+            <div class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" src="./img/contact-4.jpg" alt="Profile picture">
+              <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                <div class="ms_contacts-card-text mt-3">
+                  <h4>Samuele</h4>
+                  <h5>Ultimo messaggio inviato</h5>
+                </div>
+                <span class="ms_time ms_margin--left px-3">13.28</span>
+              </div>
+            </div>
+
+            <div class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" src="./img/contact-5.jpg" alt="Profile picture">
+              <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                <div class="ms_contacts-card-text mt-3">
+                  <h4>Alessandro B.</h4>
+                  <h5>Ultimo messaggio inviato</h5>
+                </div>
+                <span class="ms_time ms_margin--left px-3">13.28</span>
+              </div>
+            </div>
+
+            <div class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" src="./img/contact-6.jpg" alt="Profile picture">
+              <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                <div class="ms_contacts-card-text mt-3">
+                  <h4>Alessandro L.</h4>
+                  <h5>Ultimo messaggio inviato</h5>
+                </div>
+                <span class="ms_time ms_margin--left px-3">13.28</span>
+              </div>
+            </div>
+
+            <div class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" src="./img/contact-1.jpg" alt="Profile picture">
+              <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                <div class="ms_contacts-card-text mt-3">
+                  <h4>Claudia</h4>
+                  <h5>Ultimo messaggio inviato</h5>
+                </div>
+                <span class="ms_time ms_margin--left px-3">13.28</span>
+              </div>
+            </div>
+
+            <div class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" src="./img/contact-7.jpg" alt="Profile picture">
+              <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                <div class="ms_contacts-card-text mt-3">
+                  <h4>Federico</h4>
+                  <h5>Ultimo messaggio inviato</h5>
+                </div>
+                <span class="ms_time ms_margin--left px-3">13.28</span>
+              </div>
+            </div>
+
+            <div class="ms_contacts-card d-flex align-items-center">
+              <img class="rounded-circle me-3 ms-3" src="./img/contact-8.jpg" alt="Profile picture">
+              <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                <div class="ms_contacts-card-text mt-3">
+                  <h4>Davide</h4>
+                  <h5>Ultimo messaggio inviato</h5>
+                </div>
+                <span class="ms_time ms_margin--left px-3">13.28</span>
+              </div>
+            </div>
+
+          </div>
+          <!-- Footer area -->
+          <div class="ms_footer pt-2">
+            <div class="ms_footer-text">
+              I tuoi messaggi personali sono <span>crittografati end-to-end</span>.
+            </div>
+          </div>
+        </div>
+        <!-- Main content area with messages -->
+        <div class="col-8 ms_main-content px-0 d-flex flex-column justify-content-between">
+          <!-- Main top bar -->
+          <div class="ms_contact-bar d-flex align-items-center justify-content-end px-3 py-2 gap-3 shadow-sm">
+            <div class="ms_contact-info ms_margin--right d-flex align-items-center">
+              <img class="rounded-circle me-3" src="./img/contact-2.jpg" alt="Profile picture">
+              <h4 class="pt-2">Michele</h4>
+            </div>
+            <span>
+              <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path fill="var(--secondary-second)"
+                  d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z">
+                </path>
+              </svg>
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path fill="var(--secondary-second)"
+                  d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z">
+                </path>
+              </svg>
+            </span>
+          </div>
+          <!-- Main content messages -->
+          <div class="ms_main-messages flex-grow-1">
+            <div id='bg'></div>
+
+            <div class="row">
+
+              <div class="ms_container">
+
+                <div class="ms_msg-container">
+                  <span class="">
+                    <svg class="ms_bubble-arrow" viewBox="0 0 8 13" width="8" height="13" class="">
+                      <path opacity=".13" fill="#0000000"
+                        d="M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"></path>
+                      <path fill="var(--primary-second)"
+                        d="M1.533 2.568 8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z">
+                      </path>
+                    </svg>
+                  </span>
+                  <div class="ms_bubble">
+                    <div class="ms_bubble-text">
+                      Messaggio ricevuto
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Bottom main content bar -->
+          <div class="ms_message-bar d-flex align-items-center justify-content-between px-3 gap-3">
+            <span>
+              <svg viewBox="0 0 24 24" width="24" height="24" class="ekdr8vow dhq51u3o">
+                <path fill="var(--secondary-second)"
+                  d="M9.153 11.603c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962zm-3.204 1.362c-.026-.307-.131 5.218 6.063 5.551 6.066-.25 6.066-5.551 6.066-5.551-6.078 1.416-12.129 0-12.129 0zm11.363 1.108s-.669 1.959-5.051 1.959c-3.505 0-5.388-1.164-5.607-1.959 0 0 5.912 1.055 10.658 0zM11.804 1.011C5.609 1.011.978 6.033.978 12.228s4.826 10.761 11.021 10.761S23.02 18.423 23.02 12.228c.001-6.195-5.021-11.217-11.216-11.217zM12 21.354c-5.273 0-9.381-3.886-9.381-9.159s3.942-9.548 9.215-9.548 9.548 4.275 9.548 9.548c-.001 5.272-4.109 9.159-9.382 9.159zm3.108-9.751c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962z">
+                </path>
+              </svg>
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path fill="var(--secondary-second)"
+                  d="M1.816,15.556v0.002c0,1.502,0.584,2.912,1.646,3.972s2.472,1.647,3.974,1.647 c1.501,0,2.91-0.584,3.972-1.645l9.547-9.548c0.769-0.768,1.147-1.767,1.058-2.817c-0.079-0.968-0.548-1.927-1.319-2.698 c-1.594-1.592-4.068-1.711-5.517-0.262l-7.916,7.915c-0.881,0.881-0.792,2.25,0.214,3.261c0.959,0.958,2.423,1.053,3.263,0.215 c0,0,3.817-3.818,5.511-5.512c0.28-0.28,0.267-0.722,0.053-0.936c-0.08-0.08-0.164-0.164-0.244-0.244 c-0.191-0.191-0.567-0.349-0.957,0.04c-1.699,1.699-5.506,5.506-5.506,5.506c-0.18,0.18-0.635,0.127-0.976-0.214 c-0.098-0.097-0.576-0.613-0.213-0.973l7.915-7.917c0.818-0.817,2.267-0.699,3.23,0.262c0.5,0.501,0.802,1.1,0.849,1.685 c0.051,0.573-0.156,1.111-0.589,1.543l-9.547,9.549c-0.756,0.757-1.761,1.171-2.829,1.171c-1.07,0-2.074-0.417-2.83-1.173 c-0.755-0.755-1.172-1.759-1.172-2.828l0,0c0-1.071,0.415-2.076,1.172-2.83c0,0,5.322-5.324,7.209-7.211 c0.157-0.157,0.264-0.579,0.028-0.814c-0.137-0.137-0.21-0.21-0.342-0.342c-0.2-0.2-0.553-0.263-0.834,0.018 c-1.895,1.895-7.205,7.207-7.205,7.207C2.4,12.645,1.816,14.056,1.816,15.556z">
+                </path>
+              </svg>
+            </span>
+            <input type="text" class="ms_bg-msg ps-3" placeholder="Scrivi un messaggio">
+            <span class="">
+              <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
+                x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path fill="var(--secondary-second)"
+                  d="M11.999,14.942c2.001,0,3.531-1.53,3.531-3.531V4.35c0-2.001-1.53-3.531-3.531-3.531 S8.469,2.35,8.469,4.35v7.061C8.469,13.412,9.999,14.942,11.999,14.942z M18.237,11.412c0,3.531-2.942,6.002-6.237,6.002 s-6.237-2.471-6.237-6.002H3.761c0,4.001,3.178,7.297,7.061,7.885v3.884h2.354v-3.884c3.884-0.588,7.061-3.884,7.061-7.885 L18.237,11.412z">
+                </path>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
