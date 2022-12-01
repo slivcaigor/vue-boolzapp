@@ -17,7 +17,7 @@
 
 <body>
   <div v-cloak id="app">
-    <div class="container mt-5 shadow-lg">
+    <div class="container mt-5 ms_shadow">
       <div class="row">
         <!-- Left side content -->
         <div class="col-4 ms_sidebar px-0">
@@ -94,7 +94,6 @@
           </div>
           <!-- Search bar -->
           <div class="ms_search-bar d-flex align-items-center justify-content-between ps-3 py-2">
-
             <div class="input-group input-group-sm">
               <span class="input-group-text px-3">
                 <span>
@@ -108,7 +107,6 @@
               </span>
               <input class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search">
             </div>
-
             <span class="px-3">
               <svg viewBox="0 0 24 24" height="20" width="20" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
                 x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">
@@ -116,7 +114,6 @@
                 </path>
               </svg>
             </span>
-
           </div>
           <!-- Contacts Area -->
           <div class="ms_contacts">
@@ -169,8 +166,8 @@
           <div class="ms_main-messages flex-grow-1">
             <!-- Received message -->
             <div class="ms_container g-0">
-              <div class="row mb-4 ms_arrow-parent" v-for="message in contacts[contactIndex].messages">
-                <div class="col" :class="message.status">
+              <div class="mb-4" v-for="message in contacts[contactIndex].messages">
+                <div class="ms_fit-content" :class="message.status">
                   <span>
                     <svg :class="[message.status === 'sent' ?'ms_arrow-sent' : 'ms_arrow-received']" viewBox=" 0 0 8 13"
                       width="15" height="18">
@@ -204,7 +201,8 @@
                 </path>
               </svg>
             </span>
-            <input type="text" class="ms_bg-msg ps-3" placeholder="Scrivi un messaggio">
+            <input type="text" name="message" id="message" class="ms_bg-msg ps-3" placeholder="Scrivi un messaggio"
+              v-model="newMsgs" @keyup.enter="newMsg(contactIndex)">
             <span class="">
               <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
                 x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve">

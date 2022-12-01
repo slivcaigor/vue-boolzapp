@@ -11,6 +11,7 @@ createApp({
     return {
       search: '',
       contactIndex: 0,
+      newMsgs: '',
       contacts: [
         {
           name: 'Michele',
@@ -178,14 +179,36 @@ createApp({
   },
   methods: {
     currentContact(index) {
+      // Assign contact index to array index, to show current contact messages
       this.contactIndex = index;
-    }
+    },
+    newMsg(index) {
+      // Push to contacts the new message with sent status
+      this.contacts[index].messages.push({
+        message: this.newMsgs,
+        status: 'sent',
+      });
+      // Clear message input
+      this.newMsgs = '';
+
+      setTimeout(() => {
+        // Push to contacts the message below with received status after 1 second of input
+        this.contacts[index].messages.push({
+          message: 'Ok!',
+          status: 'received',
+        });
+
+      }, 1000);
+
+    },
   },
+
   computed: {
+    // Filter the array and return the contact name, not case-sensitive that is included in search input
     contactsFilter() {
       return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.search))
-    }
-  },
+    },
+  }
 }).mount('#app');
 
 
