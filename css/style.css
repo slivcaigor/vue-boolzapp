@@ -180,6 +180,11 @@ img {
 
 .ms_contacts-card:hover {
   background-color: var(--primary-second);
+  cursor: pointer;
+}
+
+.openChat {
+  background-color: var(--primary-second);
 }
 
 .ms_card-info {
@@ -266,33 +271,27 @@ img {
   margin: 3vh auto;
 }
 
-.ms_msg-container-received {
-  z-index: 222;
+.sent {
+  z-index: 333;
+  background-color: var(--secondary-third);
+  border-radius: .5em 0 .5em .5em;
   position: relative;
-  max-width: 65%;
-  font-size: 1rem;
-  color: var(--primary-third);
+  max-width: 45%;
+  padding: 0.375em 2.5em .4em 0.563em;
+  margin-left: auto;
 }
 
-.ms_bubble-arrow {
-  position: absolute;
-  top: 0;
-  left: -0.625em;
-}
-
-.ms_bubble-received {
-  position: relative;
-  border-radius: 0 .5em .5em .5em;
+.received {
+  z-index: 333;
   background-color: var(--primary-second);
-}
-
-.ms_bubble-text-received {
-  padding: 0.375em 2.5em 0.5em 0.563em;
+  border-radius: 0 .5em .5em .5em;
   position: relative;
+  max-width: 45%;
+  padding: 0.375em 2.5em 0.5em 0.563em;
 }
 
-.ms_time-received,
-.ms_time-sent {
+.received .ms_time,
+.sent .ms_time {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -301,33 +300,17 @@ img {
   color: var(--secondary-second);
 }
 
-.row>* {
-  padding: 0 !important;
+.ms_arrow-received {
+  position: absolute;
+  top: 0;
+  left: -0.625em;
+  color: var(--primary-second);
 }
 
-.ms_bubble-arrow-sent {
+.ms_arrow-sent {
   position: absolute;
   top: 0;
   right: -0.625em;
   transform: scaleX(-1);
-}
-
-.ms_bubble-sent {
-  position: relative;
-  border-radius: .5em 0em .5em .5em;
-  background-color: var(--secondary-third);
-}
-
-.ms_msg-container-sent {
-  z-index: 222;
-  position: relative;
-  font-size: 1rem;
-  color: var(--primary-third);
-  max-width: 65%;
-}
-
-
-.ms_bubble-text-sent {
-  padding: 0.375em 2.5em .4em 0.563em;
-  position: relative;
+  color: var(--secondary-third);
 }
