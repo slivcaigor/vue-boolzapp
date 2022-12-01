@@ -20,6 +20,10 @@ img {
   max-width: 100%;
 }
 
+li {
+  list-style-type: none;
+}
+
 :root {
   /* Webpage background color */
   --primary-first: #111B21;
@@ -43,6 +47,8 @@ img {
   --primary-fourth: #0B141A;
   /* Lines */
   --lines: #2F3B43;
+  /* Hover icons */
+  --hvr-icons: #848488;
 }
 
 .ms_main-content {
@@ -238,7 +244,6 @@ img {
   bottom: 0;
   right: 0;
   position: absolute;
-  z-index: 111;
 }
 
 /* Main area send message bar */
@@ -278,17 +283,15 @@ img {
 }
 
 .sent {
-  z-index: 333;
   background-color: var(--secondary-third);
   border-radius: .5em 0 .5em .5em;
   position: relative;
-  max-width: 45%;
   padding: 0.375em 2.5em .4em 0.563em;
   margin-left: auto;
+  max-width: 45%;
 }
 
 .received {
-  z-index: 333;
   background-color: var(--primary-second);
   border-radius: 0 .5em .5em .5em;
   position: relative;
@@ -319,4 +322,57 @@ img {
   right: -0.625em;
   transform: scaleX(-1);
   color: var(--secondary-third);
+}
+
+.ms_arrow-edit-s {
+  position: absolute;
+  top: 0.125rem;
+  right: 0.125rem;
+  color: var(--hvr-icons);
+  cursor: pointer;
+  display: none;
+}
+
+/* Tick for dropdown menu */
+.ms_arrow-edit-r {
+  position: absolute;
+  top: 0.125rem;
+  right: 0.125rem;
+  transform: scaleX(-1);
+  color: var(--hvr-icons);
+  cursor: pointer;
+  display: none;
+}
+
+.mb-4:hover .ms_arrow-edit-r,
+.mb-4:hover .ms_arrow-edit-s {
+  display: block;
+}
+
+/* Dropdown menu */
+.ms_dropdown {
+  background-color: var(--primary-second);
+  z-index: 10000;
+  position: absolute;
+  width: max-content;
+  max-width: 340px;
+  top: 25px;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+.ms_dropdown li:hover {
+  background-color: var(--secondary-first);
+}
+
+.ms_dropdown li {
+  padding: .9em;
+  cursor: pointer;
+}
+
+.ms_lastAccess {
+  color: var(--primary-third);
+  padding-right: 90px;
 }

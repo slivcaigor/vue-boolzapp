@@ -1,9 +1,3 @@
-/*
-Milestone 2
-Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
-Click sul contatto mostra la conversazione del contatto cliccato
-*/
-
 const { createApp } = Vue;
 
 createApp({
@@ -12,6 +6,7 @@ createApp({
       search: '',
       contactIndex: 0,
       newMsgs: '',
+      showMenu: false,
       contacts: [
         {
           name: 'Michele',
@@ -182,6 +177,9 @@ createApp({
       // Assign contact index to array index, to show current contact messages
       this.contactIndex = index;
     },
+    deleteMessage(index) {
+      this.contacts[index].messages.splice(index, 1);
+    },
     newMsg(index) {
       // Push to contacts the new message with sent status
       this.contacts[index].messages.push({
@@ -197,6 +195,7 @@ createApp({
           message: 'Ok!',
           status: 'received',
         });
+
 
       }, 1000);
 
