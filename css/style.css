@@ -137,6 +137,7 @@ li {
 .form-control {
   background-color: var(--primary-second) !important;
   border: none !important;
+  color: var(--primary-third);
 }
 
 .input-group-sm>.form-control {
@@ -182,6 +183,10 @@ li {
 
 .ms_margin--left {
   margin-left: auto;
+}
+
+.ms_contacts-card {
+  display: flex;
 }
 
 .ms_contacts-card h5:hover {

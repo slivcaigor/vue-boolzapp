@@ -106,7 +106,8 @@
                   </svg>
                 </span>
               </span>
-              <input class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search">
+              <input class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search"
+                @keyup="contactsFilter">
             </div>
             <span class="px-3">
               <svg viewBox="0 0 24 24" height="20" width="20" preserveAspectRatio="xMidYMid meet" class="" version="1.1"
@@ -118,8 +119,9 @@
           </div>
           <!-- Contacts Area -->
           <div class="ms_contacts">
-            <div v-for="(data, index) in contactsFilter" class="ms_contacts-card d-flex align-items-center"
-              :class="contactIndex === index ? 'openChat' : ''" @click="currentContact(index)">
+            <div v-for="(data, index) in contacts" class="ms_contacts-card align-items-center"
+              :class="contactIndex == index ? 'openChat' : ''" @click="currentContact(index)"
+              v-show="data.visible == true">
               <img class="rounded-circle me-3 ms-3" :src="data.avatar" :alt="data.name">
               <div class="ms_card-info d-flex align-items-center flex-grow-1">
                 <div class="ms_contacts-card-text mt-3">

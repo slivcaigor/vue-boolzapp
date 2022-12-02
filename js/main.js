@@ -195,19 +195,27 @@ createApp({
           message: 'Ok!',
           status: 'received',
         });
-
-
       }, 1000);
-
+    },
+    contactsFilter() {
+      // If search is not empty
+      if (this.search !== '') {
+        for (let i = 0; i < this.contacts.length; i++) {
+          if (this.contacts[i].name.toLowerCase().includes(this.search.toLowerCase())) {
+            this.contacts[i].visible = true;
+          }
+          else {
+            this.contacts[i].visible = false;
+          };
+        };
+        // reset contact list to default
+      } else if (this.search === '') {
+        for (let i = 0; i < this.contacts.length; i++) {
+          this.contacts[i].visible = true;
+        }
+      }
     },
   },
-
-  computed: {
-    // Filter the array and return the contact name, not case-sensitive that is included in search input
-    contactsFilter() {
-      return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.search))
-    },
-  }
 }).mount('#app');
 
 
