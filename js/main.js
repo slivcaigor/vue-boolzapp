@@ -177,12 +177,12 @@ createApp({
       // Assign contact index to array index, to show current contact messages
       this.contactIndex = index;
     },
-    deleteMessage(index) {
-      this.contacts[index].messages.splice(index, 1);
-    },
+    // deleteMessage(index) {
+    //   this.contacts[index].messages.splice(index, 1);
+    // },
     newMsg(index) {
       // Push to contacts the new message with sent status
-      this.contacts[index].messages.push({
+      this.contacts[index].messages.trim().push({
         message: this.newMsgs,
         status: 'sent',
       });
@@ -191,7 +191,7 @@ createApp({
 
       setTimeout(() => {
         // Push to contacts the message below with received status after 1 second of input
-        this.contacts[index].messages.push({
+        this.contacts[index].messages.trim().push({
           message: 'Ok!',
           status: 'received',
         });
