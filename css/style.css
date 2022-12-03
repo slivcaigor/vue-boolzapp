@@ -25,6 +25,11 @@ li {
 }
 
 :root {
+  /* Dark Mode */
+  --background-color-primary: #ebebeb;
+  --background-color-secondary: #fafafa;
+  --accent-color: #cacaca;
+  --text-primary-color: #222;
   /* Webpage background color */
   --primary-first: #111B21;
   /* Header, footer, received messages, search input, left chat hover */
@@ -49,7 +54,10 @@ li {
   --lines: #2F3B43;
   /* Hover icons */
   --hvr-icons: #848488;
+  /* Default size */
+
 }
+
 
 .ms_main-content {
   height: 850px;
